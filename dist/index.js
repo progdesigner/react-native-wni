@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.WNInterface = exports.ReactNativeWNInterface = void 0;
 const react_native_1 = require("react-native");
-const react_native_safe_area_context_1 = require("react-native-safe-area-context");
 // const { WNInterfaceModule } = NativeModules;
 class ReactNativeWNInterface {
     static getProperties() {
@@ -36,13 +35,16 @@ class WNInterface {
     registerMethods(methods) {
         this._methods = methods;
     }
-    setupAndroidSafeArea() {
+    /**
+     * WebView에 SafeAreaInset 값을 주입합니다. 반드시 함수형 컴포넌트에서 useSafeAreaInsets로 값을 받아서 전달해야 합니다.
+     * @param insets useSafeAreaInsets()로 얻은 값
+     */
+    setupAndroidSafeArea(insets) {
         var _a, _b;
         if (this._controller == null) {
             console.warn('WebView is not set');
             return;
         }
-        const insets = (0, react_native_safe_area_context_1.useSafeAreaInsets)();
         (_b = (_a = this._controller) === null || _a === void 0 ? void 0 : _a.current) === null || _b === void 0 ? void 0 : _b.injectJavaScript(`
       document.documentElement.style.setProperty('--android-safe-area-inset-top', '${insets.top.toString()}px');
       document.documentElement.style.setProperty('--android-safe-area-inset-left', '${insets.left.toString()}px');

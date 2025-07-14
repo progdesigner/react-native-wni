@@ -20,7 +20,16 @@ export declare class WNInterface {
     registerMethods(methods: {
         [key: string]: Function;
     }): void;
-    setupAndroidSafeArea(): void;
+    /**
+     * WebView에 SafeAreaInset 값을 주입합니다. 반드시 함수형 컴포넌트에서 useSafeAreaInsets로 값을 받아서 전달해야 합니다.
+     * @param insets useSafeAreaInsets()로 얻은 값
+     */
+    setupAndroidSafeArea(insets: {
+        top: number;
+        left: number;
+        right: number;
+        bottom: number;
+    }): void;
     handleMessage: (event: WebViewMessageEvent) => void;
     call(functionName: string, data: any): void;
     execute(payload: WNInterfacePayload): void;

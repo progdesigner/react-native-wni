@@ -15,5 +15,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/progdesigner/react-native-wni.git", :tag => "v#{s.version}" }
   s.source_files  = "ios/**/*.{h,m}"
 
+  s.prepare_command = 'echo skip'
+
   s.dependency 'React'
 end

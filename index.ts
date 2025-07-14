@@ -1,7 +1,6 @@
 import React, { RefObject } from 'react';
 import { NativeModules, Platform } from 'react-native';
 import type { WebView, WebViewMessageEvent } from 'react-native-webview';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 // const { WNInterfaceModule } = NativeModules;
 
@@ -41,14 +40,11 @@ export class WNInterface {
     this._methods = methods;
   }
 
-  setupAndroidSafeArea() {
+  setupAndroidSafeArea(insets: {top: number, left: number, right: number, bottom: number}) {
     if (this._controller == null) {
       console.warn('WebView is not set');
       return;
     }
-    
-    const insets = useSafeAreaInsets();
-
     this._controller?.current?.injectJavaScript(`
       document.documentElement.style.setProperty('--android-safe-area-inset-top', '${insets.top.toString()}px');
       document.documentElement.style.setProperty('--android-safe-area-inset-left', '${insets.left.toString()}px');
