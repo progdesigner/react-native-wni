@@ -1,18 +1,11 @@
 // ReactNativeWni.m
-
 #import "ReactNativeWni.h"
-#import <UIKit/UIKit.h>
-#import <WebKit/WebKit.h>
-#import <sys/utsname.h>
-#import <Security/Security.h>
 #import "KeychainItemWrapper.h"
 
-@interface ReactNativeWni : NSObject <RCTBridgeModule>
-@property (nonatomic, strong) WKWebView *webView;
-@property (nonatomic, assign) BOOL isEmulator;
-@end
-
 @implementation ReactNativeWni
+
+@synthesize isEmulator;
+@synthesize webView;
 
 RCT_EXPORT_MODULE()
 
