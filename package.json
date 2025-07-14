@@ -1,6 +1,6 @@
 {
   "name": "react-native-wni",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "React Native WebView에서 네이티브 디바이스/앱/OS 정보 및 명령 브릿지를 제공합니다.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -8,18 +8,27 @@
     "build": "tsc",
     "watch": "chokidar 'index.ts' -c 'npm run build'"
   },
-  "files": [
-    "dist",
-    "README.md"
-  ],
   "peerDependencies": {
     "react": ">=16.8.1",
     "react-native": ">=0.60.0-rc.0 <1.0.x"
   },
   "devDependencies": {
+    "@types/react": "^19.1.8",
+    "chokidar-cli": "^3.0.0",
     "react": "^16.9.0",
-    "react-native": "^0.61.5"
+    "react-native": "^0.61.5",
+    "react-native-webview": "^11.26.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/progdesigner/react-native-wni.git"
+  },
+  "files": [
+    "android",
+    "ios",
+    "dist",
+    "react-native-wni.podspec"
+  ],
   "author": "ProgDesigner <me@progdesigner.com>",
   "license": "MIT"
 }
