@@ -1,6 +1,6 @@
 {
   "name": "react-native-wni",
-  "version": "0.2.4",
+  "version": "0.2.5",
   "description": "Provides a bridge for native device/app/OS information and commands in React Native WebView.",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
